@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Snake</title>
+</head>
+<body>
+<canvas id="gameBoard" height="900" width="1000"></canvas>
+<script>
+var canvas = document.getElementById("gameBoard");
+var context = canvas.getContext("2d");
+context.fillStyle = "black";
+context.fillRect(0, 0, 900, 1000);
+context.beginPath();
+context.arc(50, 100, 10, 0, 2*Math.PI);
+context.strokeStyle = "green";
+context.fillStyle = "green";
+context.fill();
+context.stroke();
+context.closePath();
+
+var x = 3;
+var y = 2;
+var timeoutId;
+function movingSnake(){
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = "black";
+	context.fillRect(0, 0, 900, 1000);
+	context.beginPath();
+	context.arc(x, y, 10, 0, 2*Math.PI);
+	context.fillStyle = "green";
+	context.fill();
+	x += 3;
+	y += 3;
+	timeoutId = setTimeout(movingSnake, 70);
+}
+movingSnake();
+</script>
+</body>
+</html>
