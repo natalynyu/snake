@@ -5,12 +5,12 @@
 <title>Snake</title>
 </head>
 <body>
-<canvas id="gameBoard" height="900" width="1000"></canvas>
+<canvas id="gameBoard" height="300" width="800"></canvas>
 <script>
 var canvas = document.getElementById("gameBoard");
 var context = canvas.getContext("2d");
 context.fillStyle = "black";
-context.fillRect(0, 0, 900, 1000);
+context.fillRect(0, 0, 300, 800);
 context.beginPath();
 context.arc(50, 100, 10, 0, 2*Math.PI);
 context.strokeStyle = "green";
@@ -19,8 +19,10 @@ context.fill();
 context.stroke();
 context.closePath();
 
-var x = 3;
+var x = 10;
 var y = 2;
+var dx = 0;
+var dy = 0;
 var timeoutId;
 function movingSnake(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
@@ -30,11 +32,31 @@ function movingSnake(){
 	context.arc(x, y, 10, 0, 2*Math.PI);
 	context.fillStyle = "green";
 	context.fill();
-	x += 3;
-	y += 3;
+	x += 0 + dx;
+	y += 5 + dy;
+	
 	timeoutId = setTimeout(movingSnake, 70);
 }
 movingSnake();
+
+window.addEventListener('keyup', function (e){
+	//Up Arrow
+	if (e.keyCode == 38){ 	
+		dy += -3;
+	}
+	//Left Arrow
+	else if (e.keyCode == 37){
+		dx += -1;
+	}
+	//Down Arrow
+	else if (e.keyCode == 40){
+		dy += 1; 
+	}
+	//Right Arrow
+	else if (e.keyCode == 39){
+		dx += 1;
+	}
+})	
 </script>
 </body>
 </html>
