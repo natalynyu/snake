@@ -36,6 +36,23 @@ function movingSnake(){
 	x += dx;
 	y += dy;
 	
+	// make the direction opposite when the ball gets too high in canvas
+	// i.e. bounce off top wall
+	if (y < radius) { 
+		dy *= -1;
+	}
+	// bounce off right wall
+	if (x > canvas.width - radius) {
+		dx *= -1;
+	}
+	// bounce off left wall
+	if (x < radius) {
+		dx *= -1;
+	}
+	// bounce off bottom wall
+	if (y > canvas.height - radius) {
+		dy *= -1;
+	}
 	timeoutId = setTimeout(movingSnake, 40);
 }
 movingSnake();
