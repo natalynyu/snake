@@ -19,8 +19,8 @@ context.fill();
 context.stroke();
 context.closePath();
 
-var x = 10;
-var y = 2;
+var x = 100;
+var y = 100;
 var dx = 0;
 var dy = 0;
 var timeoutId;
@@ -33,8 +33,8 @@ function movingSnake(){
 	context.arc(x, y, radius, 0, 2*Math.PI);
 	context.fillStyle = "green";
 	context.fill();
-	x += 0 + dx;
-	y += 5 + dy;
+	x += dx;
+	y += dy;
 	
 	timeoutId = setTimeout(movingSnake, 70);
 }
