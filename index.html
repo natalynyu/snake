@@ -56,23 +56,23 @@ function movingSnake(){
 	timeoutId = setTimeout(movingSnake, 40);
 }
 movingSnake();
-
+var acceleration = 8;
 window.addEventListener('keyup', function (e){
 	//Up Arrow
 	if (e.keyCode == 38){ 	
-		dy += -3;
+		dy += -acceleration;
 	}
 	//Left Arrow
 	else if (e.keyCode == 37){
-		dx += -1;
+		dx += -acceleration;
 	}
 	//Down Arrow
 	else if (e.keyCode == 40){
-		dy += 1; 
+		dy += acceleration; 
 	}
 	//Right Arrow
 	else if (e.keyCode == 39){
-		dx += 1;
+		dx += acceleration;
 	}
 })	
 </script>
