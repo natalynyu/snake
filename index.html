@@ -24,12 +24,13 @@ var y = 2;
 var dx = 0;
 var dy = 0;
 var timeoutId;
+var radius = 20;
 function movingSnake(){
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	context.fillStyle = "black";
 	context.fillRect(0, 0, 900, 1000);
 	context.beginPath();
-	context.arc(x, y, 10, 0, 2*Math.PI);
+	context.arc(x, y, radius, 0, 2*Math.PI);
 	context.fillStyle = "green";
 	context.fill();
 	x += 0 + dx;
