@@ -74,7 +74,15 @@ window.addEventListener('keyup', function (e){
 	else if (e.keyCode == 39){
 		dx += acceleration;
 	}
+	//Space Bar for Pause
+	else if (e.keyCode == 32){
+		dx = 0;
+		dy = 0;
+	}
 })	
+
+
+
 </script>
 </body>
 </html>
