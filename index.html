@@ -57,10 +57,12 @@ function movingSnake(){
 }
 movingSnake();
 var acceleration = 8;
+var maxSpeed = 30;
 window.addEventListener('keyup', function (e){
 	//Up Arrow
 	if (e.keyCode == 38){ 	
 		dy += -acceleration;
+		dy = Math.max(dy, maxSpeed);
 	}
 	//Left Arrow
 	else if (e.keyCode == 37){
